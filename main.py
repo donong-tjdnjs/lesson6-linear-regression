@@ -153,9 +153,4 @@ st.info(
     f"사용된 데이터는 {start_year}년부터 {end_year}년까지 총 {count_years}개 해의 관측값입니다. "
     f"상관계수는 **{correlation:.4f}**로 강한 양의 상관관계를 보여줍니다."
 )
-# 기울기를 100년 단위로, 그리고 최근 20년과 비교
-recent = yearly[yearly["연도"] >= yearly["연도"].max() - 19]
-a2, _ = np.polyfit(recent["연도"], recent["연평균기온"], 1)
-c1, c2 = st.columns(2)
-c1.metric("전체 기간 기울기", f"{a * 100:+.2f}℃ / 100년")
-c2.metric("최근 20년 기울기", f"{a2 * 100:+.2f}℃ / 100년")
+
